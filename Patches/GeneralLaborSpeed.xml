@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Crafting skill drives General labor speed: factor = baseValue + bonusPerLevel * level,
+       so 0.30 at level 0, 1.30 at level 2, 10.30 at level 20. Buitrago's numbers, untouched.
+       To retune the mod, these two values are the whole of it.
+
+       Vanilla's GeneralLaborSpeed carries no <skillNeedFactors> (Core/Defs/Stats/
+       Stats_Pawns_WorkRecipes.xml), so the list has to be created. The original patch created
+       it unconditionally, which writes a second <skillNeedFactors> node if another mod added
+       one first. Test, then add to the list or create it. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/StatDef[defName="GeneralLaborSpeed"]/skillNeedFactors</xpath>
+
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/StatDef[defName="GeneralLaborSpeed"]/skillNeedFactors</xpath>
+      <value>
+        <li Class="SkillNeed_BaseBonus">
+          <skill>Crafting</skill>
+          <baseValue>0.30</baseValue>
+          <bonusPerLevel>0.50</bonusPerLevel>
+        </li>
+      </value>
+    </match>
+
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/StatDef[defName="GeneralLaborSpeed"]</xpath>
+      <value>
+        <skillNeedFactors>
+          <li Class="SkillNeed_BaseBonus">
+            <skill>Crafting</skill>
+            <baseValue>0.30</baseValue>
+            <bonusPerLevel>0.50</bonusPerLevel>
+          </li>
+        </skillNeedFactors>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>
