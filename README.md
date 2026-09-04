@@ -19,15 +19,19 @@ Do not run it alongside the original mod; `<incompatibleWith>` declares the clas
 
 ## Layout
 
-    About/About.xml                    metadata and the Workshop description
-    Patches/GeneralLaborSpeed.xml      the whole mod
+    Mod/                               the published folder - this is what Steam receives
+      About/About.xml                  metadata and the Workshop description
+      About/ModIcon.png                128x128, shown at 32 px in the mod list
+      Patches/GeneralLaborSpeed.xml    the whole mod
+      LICENSE, ATTRIBUTION.md          copies: Steam ships the folder, not the repo
+    Art/                               full-resolution image sources, never published
     ATTRIBUTION.md                     what is Buitrago's, what the update changed
     CHANGELOG.md                       release notes
     LICENSE                            MIT, over the update work only
 
 ## Retuning it
 
-Both numbers live in `Patches/GeneralLaborSpeed.xml`, in **both branches** of the conditional —
+Both numbers live in `Mod/Patches/GeneralLaborSpeed.xml`, in **both branches** of the conditional —
 change one branch only and the mod behaves differently depending on which other mods are loaded.
 
 ## Credit

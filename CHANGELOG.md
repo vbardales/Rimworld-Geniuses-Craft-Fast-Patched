@@ -28,7 +28,7 @@ and most of the work was checking that it did not need to be larger.
   appends to an existing list, and creates the list only when there is none.
 - **`packageId`** is `nelim.geniusescraftfastpatched`, with `<incompatibleWith>` on
   `Buitrago.GeniusesCraftFast` so the two cannot run together.
-- **`Patches/Patch.xml` renamed `Patches/GeneralLaborSpeed.xml`**, after what it patches.
+- **`Patches/Patch.xml` renamed `Mod/Patches/GeneralLaborSpeed.xml`**, after what it patches.
 
 ### Notes
 
